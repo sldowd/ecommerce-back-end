@@ -1,170 +1,177 @@
-# E-commerce Back End Starter Code
+# E-Commerce Back End 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[MIT](https://opensource.org/licenses/MIT)
 
-# 13 Object Relational Mapping (ORM): E-commerce Back End
-​
-Internet retail, also known as e-commerce, is the largest sector of the electronics industry, having generated an estimated US$29 trillion in 2017 (Source: United Nations Conference on Trade and Development). E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to the prevalence of these platforms, developers should understand the fundamental architecture of e-commerce sites.
-​
-Your challenge is to build the back end for an e-commerce site. You’ll take a working Express.js API and configure it to use Sequelize to interact with a MySQL database.
-​
-Because this application won’t be deployed, you’ll also need to create a walkthrough video that demonstrates its functionality and all of the following acceptance criteria being met. You’ll need to submit a link to the video and add it to the README of your project.
-​
-Before you start, clone [the starter code](https://github.com/coding-boot-camp/fantastic-umbrella).
-​
-​
-## User Story
-​
-```md
-AS A manager at an internet retail company
-I WANT a back end for my e-commerce website that uses the latest technologies
-SO THAT my company can compete with other e-commerce companies
-```
-​
-## Acceptance Criteria
-​
-```md
-GIVEN a functional Express.js API
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
-THEN I am able to connect to a database using Sequelize
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
-WHEN I open API GET routes in Insomnia Core for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
-THEN I am able to successfully create, update, and delete data in my database
-```
-​
-## Mock-Up
-​
-The following animations show examples of the application's API routes being tested in Insomnia Core.
-​
-The first animation shows GET routes to return all categories, all products, and all tags being tested in Insomnia Core:
-​
-![In Insomnia Core, the user tests “GET tags,” “GET Categories,” and “GET All Products.”.](./Assets/13-orm-homework-demo-01.gif)
-​
-The second animation shows GET routes to return a single category, a single product, and a single tag being tested in Insomnia Core:
-​
-![In Insomnia Core, the user tests “GET tag by id,” “GET Category by ID,” and “GET One Product.”](./Assets/13-orm-homework-demo-02.gif)
-​
-The final animation shows the POST, PUT, and DELETE routes for categories being tested in Insomnia Core:
-​
-![In Insomnia Core, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”](./Assets/13-orm-homework-demo-03.gif)
-​
-Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia Core.
-​
-​
-## Getting Started
-​
-You’ll need to use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect your Express.js API to a MySQL database and the [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables to store sensitive data, like your MySQL username, password, and database name.
-​
-Use the `schema.sql` file in the `db` folder to create your database using MySQL shell commands. Use environment variables to store sensitive data, like your MySQL username, password, and database name.
-​
-### Database Models
-​
-Your database should contain the following four models, including the requirements listed for each model:
-​
-* `Category`
-​
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Uses auto increment
-​
-  * `category_name`
-    * String
-    * Doesn't allow null values
-​
-* `Product`
-​
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Uses auto increment
-​
-  * `product_name`
-    * String
-    * Doesn't allow null values
-​
-  * `price`
-    * Decimal
-    * Doesn't allow null values
-    * Validates that the value is a decimal
-​
-  * `stock`
-    * Integer
-    * Doesn't allow null values
-    * Set a default value of 10
-    * Validates that the value is numeric
-​
-  * `category_id`
-    * Integer
-    * References the `category` model's `id` 
-​
-* `Tag`
-​
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Uses auto increment
-​
-  * `tag_name`
-    * String
-​
-* `ProductTag`
-​
-  * `id`
-    * Integer
-    * Doesn't allow null values
-    * Set as primary key
-    * Uses auto increment
-​
-  * `product_id`
-    * Integer
-    * References the `product` model's `id`
-​
-  * `tag_id`
-    * Integer
-    * References the `tag` model's `id`
-​
-### Associations
-​
-You'll need to execute association methods on your Sequelize models to create the following relationships between them:
-​
-* `Product` belongs to `Category`, as a category can have multiple products but a product can only belong to one category.
-​
-* `Category` has many `Product` models.
-​
-* `Product` belongs to many `Tag` models. Using the `ProductTag` through model, allow products to have multiple tags and tags to have many products.
-​
-* `Tag` belongs to many `Product` models.
-​
-**Hint**: Make sure you set up foreign key relationships that match the column we created in the respective models.
-​
-### Fill out the API Routes to Perform RESTful CRUD Operations
-​
-Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `category-routes.js` to perform create, read, update, and delete operations using your Sequelize models.
-​
-**Note**: The functionality for creating the many-to-many relationship for products is already done for you.
-​
-**Hint**: Be sure to look at your module project's code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
-​
-### Seed the Database
-​
-After creating the models and routes, run `npm run seed` to seed data to your database so that you can test your routes.
-​
-### Sync Sequelize to the Database on Server Start
-​
-Create the code needed in `server.js` to sync the Sequelize models to the MySQL database on server start.
-​
-​
-## Review
-​
-You are required to submit BOTH of the following for review:
-​
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-​
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+## Description
+
+This project is an example of back end functionality for an E-commerce website. This project is written in JavaScript and uses an express server connected with a MySQL databased that is structured using the ORM sequelize. API routes were tested using Insomnia Core. Sensitive data is hidden by using the Dotenv package. 
+
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+        
+## Installation
+
+To run this application you must install Node, NPM, and all associated packages including: express, mysql2, sequelize, and dotenv.
+
+## Usage
+
+Start the server by entering <npm start> in the command line while in the root directory of the application.
+
+## License
+
+Copyright (c) sldowd. All rights reserved. 
+
+        Licensed under the MIT license.
+
+## Contributing 
+
+
+### Contributor Covenant Code of Conduct
+
+### Our Pledge
+
+We as members, contributors, and leaders pledge to make participation in our
+community a harassment-free experience for everyone, regardless of age, body
+size, visible or invisible disability, ethnicity, sex characteristics, gender
+identity and expression, level of experience, education, socio-economic status,
+nationality, personal appearance, race, religion, or sexual identity
+and orientation.
+
+We pledge to act and interact in ways that contribute to an open, welcoming,
+diverse, inclusive, and healthy community.
+
+### Our Standards
+
+Examples of behavior that contributes to a positive environment for our
+community include:
+
+* Demonstrating empathy and kindness toward other people
+* Being respectful of differing opinions, viewpoints, and experiences
+* Giving and gracefully accepting constructive feedback
+* Accepting responsibility and apologizing to those affected by our mistakes,
+and learning from the experience
+* Focusing on what is best not just for us as individuals, but for the
+overall community
+
+Examples of unacceptable behavior include:
+
+* The use of sexualized language or imagery, and sexual attention or
+advances of any kind
+* Trolling, insulting or derogatory comments, and personal or political attacks
+* Public or private harassment
+* Publishing others' private information, such as a physical or email
+address, without their explicit permission
+* Other conduct which could reasonably be considered inappropriate in a
+professional setting
+
+### Enforcement Responsibilities
+
+Community leaders are responsible for clarifying and enforcing our standards of
+acceptable behavior and will take appropriate and fair corrective action in
+response to any behavior that they deem inappropriate, threatening, offensive,
+or harmful.
+
+Community leaders have the right and responsibility to remove, edit, or reject
+comments, commits, code, wiki edits, issues, and other contributions that are
+not aligned to this Code of Conduct, and will communicate reasons for moderation
+decisions when appropriate.
+
+### Scope
+
+This Code of Conduct applies within all community spaces, and also applies when
+an individual is officially representing the community in public spaces.
+Examples of representing our community include using an official e-mail address,
+posting via an official social media account, or acting as an appointed
+representative at an online or offline event.
+
+### Enforcement
+
+Instances of abusive, harassing, or otherwise unacceptable behavior may be
+reported to the community leaders responsible for enforcement at
+[INSERT CONTACT METHOD].
+All complaints will be reviewed and investigated promptly and fairly.
+
+All community leaders are obligated to respect the privacy and security of the
+reporter of any incident.
+
+### Enforcement Guidelines
+
+Community leaders will follow these Community Impact Guidelines in determining
+the consequences for any action they deem in violation of this Code of Conduct:
+
+#### 1. Correction
+
+**Community Impact**: Use of inappropriate language or other behavior deemed
+unprofessional or unwelcome in the community.
+
+**Consequence**: A private, written warning from community leaders, providing
+clarity around the nature of the violation and an explanation of why the
+behavior was inappropriate. A public apology may be requested.
+
+#### 2. Warning
+
+**Community Impact**: A violation through a single incident or series
+of actions.
+
+**Consequence**: A warning with consequences for continued behavior. No
+interaction with the people involved, including unsolicited interaction with
+those enforcing the Code of Conduct, for a specified period of time. This
+includes avoiding interactions in community spaces as well as external channels
+like social media. Violating these terms may lead to a temporary or
+permanent ban.
+
+#### 3. Temporary Ban
+
+**Community Impact**: A serious violation of community standards, including
+sustained inappropriate behavior.
+
+**Consequence**: A temporary ban from any sort of interaction or public
+communication with the community for a specified period of time. No public or
+private interaction with the people involved, including unsolicited interaction
+with those enforcing the Code of Conduct, is allowed during this period.
+Violating these terms may lead to a permanent ban.
+
+#### 4. Permanent Ban
+
+**Community Impact**: Demonstrating a pattern of violation of community
+standards, including sustained inappropriate behavior,  harassment of an
+individual, or aggression toward or disparagement of classes of individuals.
+
+**Consequence**: A permanent ban from any sort of public interaction within
+the community.
+
+### Attribution
+
+This Code of Conduct is adapted from the [Contributor Covenant][homepage],
+version 2.0, available at
+[https://www.contributor-covenant.org/version/2/0/code_of_conduct.html][v2.0].
+
+Community Impact Guidelines were inspired by 
+[Mozilla's code of conduct enforcement ladder][Mozilla CoC].
+
+For answers to common questions about this code of conduct, see the FAQ at
+[https://www.contributor-covenant.org/faq][FAQ]. Translations are available 
+at [https://www.contributor-covenant.org/translations][translations].
+
+[homepage]: https://www.contributor-covenant.org
+[v2.0]: https://www.contributor-covenant.org/version/2/0/code_of_conduct.html
+[Mozilla CoC]: https://github.com/mozilla/diversity
+[FAQ]: https://www.contributor-covenant.org/faq
+[translations]: https://www.contributor-covenant.org/translations
+
+
+### Tests
+
+API routes are tested with Insomnia Core. They can also be tested locally in your browser window.
+
+### Questions
+
+Addtional Questions? Email them to sarahlynnedowd@gmail.com.
+[View creator Github here.](https://github.com/sldowd/)
+    
