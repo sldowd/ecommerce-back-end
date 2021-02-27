@@ -174,4 +174,4 @@ API routes are tested with Insomnia Core. They can also be tested locally in you
 
 Addtional Questions? Email them to sarahlynnedowd@gmail.com.
 [View creator Github here.](https://github.com/sldowd/)
-    
+[![Walkthrough Video](https://res.cloudinary.com/marcomontalbano/image/upload/v1614436429/video_to_markdown/images/youtube--PJfgENy6G5U-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/PJfgENy6G5U "Walkthrough Video")
